@@ -1,11 +1,14 @@
 package data_structure.list.linkedList;
 
+import java.util.ListIterator;
+
 public class LinkedList {
 	private Node head;
 	//tail 객체를 생성하지 않는다면, 뒤에 추가할때마다 head->마지막까지 계속 탐색해야하는 불상사가 일어남.
 	private Node tail;
 	private int size = 0;
 	
+	// Node 객체 선언
 	private class Node{
 		//데이터가 저장될 필드
 		private Object data;
@@ -23,6 +26,9 @@ public class LinkedList {
 			return String.valueOf(this.data);
 		}
 	}
+	
+	
+	//-------추가 관련 메서드
 	
 	// Node List의 처음에 Node를 추가하는 메서드
 	public void addFirst(Object input) {
@@ -74,8 +80,111 @@ public class LinkedList {
 		if(index == 0) {
 			addFirst(input);
 		} else {
+			Node aheadOne = node(index-1);
+			Node behindOne = aheadOne.next;
+			Node newNode = new Node(input);
+			aheadOne.next = newNode;
+			newNode.next = behindOne;
+			size++;
 			
+			//만일 제일 끝에 추가한다면
+			if(newNode.next == null) {
+				tail = newNode;
+			}
 		}
+	}
+	
+	// -------Util성 메소드
+	// Linked List를 하나의 String으로 반환하는 함수
+	public String toString() {
+		// 빈 리스트라면
+		if( head == null) {
+			return "[]";
+		}
+		Node temp = head;
+		String str = "[";
+		
+		//Linked리스트를 전부 순차적으로 탐색
+		while(temp.next != null) {
+			str += temp.data + ", ";
+			temp = temp.next;
+		}
+		
+		//마지막 Node는 수동으로 데이터를 1번 추가해줌
+		str += temp.data;
+		
+		return str + "]";
+	}
+	
+	
+	// -------삭제 관련 메소드
+	
+	// 첫번째 Node를 삭제하는 메소드
+	// JAVA에서는 Remove를 했을 때, 삭제된 Node가 갖고 있었던 값을 돌려주게 되어있다. 따라서 Object를 반환.
+	public Object removeFirst() {
+		Node temp = head;
+		head = head.next;
+		//JAVA의 규칙에 따라 돌려주기 위한 데이터를 Object Type으로 저장
+		Object returnData = temp.data;
+		temp = null;
+		size--;
+		return returnData;
+		
+	}
+	
+	// 특정한 위치의 Node를 삭제하는 메소드
+	public Object remove(int index) {
+		if(index == 0) {
+			return removeFirst();
+		}
+		
+		Node temp = node(index-1);
+		Node todoDeleted = temp.next;
+		temp.next = temp.next.next;
+		Object returnData = todoDeleted.data;
+		
+		//만일 삭제하려는 노드가 가장 마지막 노드라면
+		if(todoDeleted.next == tail) {
+			tail = temp;
+		}
+		todoDeleted = null;
+		size--;
+		return returnData;
+	}
+	
+	// 마지막 Node를 삭제하는 메소드
+	public Object removeLast() {
+		return remove(size-1);
+	}
+	
+	// ------ 엘리먼트 관련 메소드
+	
+	//엘리먼트의 크기
+	public int size() {
+		return size;
+	}
+	
+	//엘리먼트 가져오기
+	public Object get(int index) {
+		Node temp = node(index);
+		return temp.data;
+	}
+	
+	// ------ 탐색 관련 메소드
+	public int indexOf(Object data) {
+		Node temp = head;
+		int index = 0;
+		while(temp.data != data) {
+			temp = temp.next;
+			index++;
+			
+			//가장 끝에 있는 node에 도달했을 경우 : 없는 값이여서 못 찾았을 경우
+			if(temp == null) {
+				//-1을 return해서 검색을 종료시킴
+				return -1;
+			}
+		}
+		return index;
 	}
 }
 
