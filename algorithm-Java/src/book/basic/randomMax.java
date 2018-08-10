@@ -4,7 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class randomMax {
-	// 자동으로 난수 생성해서 그 중 최댓값을 찾는 문제
+	// 자동으로 난수를 생성해서 그 중 최대값을 찾는 문제
 	public static void main(String args[]) {
 		Scanner scan = new Scanner(System.in);
 		
