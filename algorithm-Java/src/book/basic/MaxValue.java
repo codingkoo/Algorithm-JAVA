@@ -12,7 +12,7 @@ public class MaxValue {
 		scan.close();
 		System.out.println(max4(a,b,c,d));
 	}
-	// a, b, c, d 4개의 숫자 중 최대값을 구하는 메소드
+
 	public static int max4(int a, int b, int c, int d) {
 		int max = a;
 		if(b > max) {

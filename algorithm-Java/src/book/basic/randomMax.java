@@ -4,7 +4,6 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class randomMax {
-	// 자동으로 난수를 생성해서 그 중 최대값을 찾는 문제
 	public static void main(String args[]) {
 		Scanner scan = new Scanner(System.in);
 		
@@ -21,7 +20,7 @@ public class randomMax {
 		}
 		int max = maxOf(a);
 		System.out.println(sb);
-		System.out.println("최대값은 :" + max);
+		System.out.println(max);
 		
 	}
 	
