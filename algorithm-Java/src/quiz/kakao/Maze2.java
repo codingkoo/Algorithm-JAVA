@@ -1,6 +1,5 @@
 package quiz.kakao;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Maze2 {
