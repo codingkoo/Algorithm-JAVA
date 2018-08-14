@@ -16,7 +16,10 @@ public class Boj_1003_Fibonacci2 {
 		}
 		scan.close();
 		
+	    //문제에서 숫자 N은 40과 같거나 작다는 조건을 주었음
 		int[][] nums = new int[41][2];
+		
+	    //f(0), f(1), f(2)의 값은 규칙성이 없다. 따라서 수동으로 값을 지정
 		nums[0][0] = 1;
 		nums[0][1] = 0;
 		
