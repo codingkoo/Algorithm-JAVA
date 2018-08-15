@@ -41,14 +41,4 @@ public class swea_1206_View {
         }
         bf.close();
         }
-    
-    public static int findMax(int a, int b) {
-        int temp = a;
-        if(a == b | a < b) {
-            temp = b;
-        }
-        
-        return temp;
-        
-    }
 }
