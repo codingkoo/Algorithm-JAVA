@@ -14,18 +14,24 @@ public class Template {
 		ALGO solver = new ALGO(); 
 		//while (solver.solve(1, in, out)) { 
 		int T = in.nextInt(); 
-		// int T = 1; 
+		int next[] = new int[T];
+	      StringBuffer sb = new StringBuffer();
 		for (int i = 0; i < T; i++) { 
-			solver.solve(i + 1, in, out); 
+		    next[i] = solver.solve(i + 1, in, out);
+		    sb.append(next[i]);
 		} 
+
+		out.println(sb);
 		out.close(); 
 	} 
 } 
 
 class ALGO { 
-	public void solve(int testNumber, InputReader in, PrintWriter out) { 
+	public int solve(int testNumber, InputReader in, PrintWriter out) { 
 		int N = in.nextInt(); 
-		//algorithm 
+		//algorithm
+		
+		return N;
 	} 
 } 
 
