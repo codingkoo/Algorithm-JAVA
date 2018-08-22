@@ -25,12 +25,7 @@ public class swea_2072_sum_odd_number {
                     sum += Integer.parseInt(temp);
                 }
             }
-            
             System.out.println("#" + i + " " + sum);
         }
-        
-        
-
     }
-
 }
