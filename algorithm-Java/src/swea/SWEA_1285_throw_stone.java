@@ -19,14 +19,11 @@ public class SWEA_1285_throw_stone {
             int bestPlayer = 0;
             
             for(int k = 0; k < player; k++) {
-                if(Math.abs(scores[k]) <= bestScore) {
+                if(Math.abs(scores[k]) == bestScore) {
+                    bestPlayer++;
+                } else if(Math.abs(scores[k]) < bestScore) {
                     bestScore = Math.abs(scores[k]);
-                    if(Math.abs(scores[k]) == bestScore) {
-                        bestPlayer++;
-                    } else {
-                        bestPlayer = 0;
-                        bestPlayer++;
-                    }
+                    bestPlayer = 1;
                 }
             }
             System.out.println("#" + i + " " + bestScore + " " + bestPlayer);
