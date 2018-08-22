@@ -28,16 +28,12 @@ public class swea_1284_bill{
                 bPriceTotal = bPriceBase + (used - bPriceLimit) * bPriceAdd; 
             }
             
-            
             if(aPrice < bPriceTotal) {
                 nicePrice = aPrice;
             } else {
                 nicePrice = bPriceTotal;
             }
-            
             System.out.println("#" + i + " " + nicePrice);
-            
         }
     }
-    
 }
