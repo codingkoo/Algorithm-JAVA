@@ -4,12 +4,13 @@ public class FriendsBlock {
 
     public static void main(String[] args) {
         String[] test = {"CCBDE", "AAADE", "AAABF", "CCBBF"};
+        String[] test2 = {"TTTANT", "RRFACC", "RRRFCC", "TRRRAA", "TTMMMF", "TMMTTJ"};
         System.out.println(solution(4, 5, test));
-
+        System.out.println(solution(6, 6, test2));
     }
     
+    
     public static int solution(int m, int n, String[] board) {
-
         String[][] map = new String[m][n];
         for(int i = 0; i < m; i++) {
             for(int j = 0; j < n; j++) {
@@ -26,31 +27,32 @@ public class FriendsBlock {
         
         //2회차 ~ n회차
         checkBlock(m, n, map, cloneMap);
+        
         while(pangBlock(m,n,cloneMap)!=0) {
             sum += pangBlock(m,n,cloneMap);
             cleanMap(m, n, map, cloneMap);
             pullDownMap(m, n, map);
             checkBlock(m, n, map, cloneMap);
         }
-        
-        
         return sum;
     }
     
+    
     public static void checkBlock(int m, int n, String[][] map, String[][] cloneMap) {
-            for(int y = 0; y < m-1; y++) {
-                for(int x = 0; x <n-1; x++) {
-                    if(map[y][x] == null | map[y+1][x] == null | map[y][x+1] == null | map[y+1][x+1] == null) {
-                        //null 처리를 위한 부분. 암것두 안함. 그러나 명시해주지 않으면 nullPointException이 일어남.
-                    } else if(map[y][x].equals(map[y][x+1]) & map[y][x].equals(map[y+1][x]) & map[y][x].equals(map[y+1][x+1])) {
-                        cloneMap[y][x] = "X";
-                        cloneMap[y][x+1] = "X";
-                        cloneMap[y+1][x] = "X";
-                        cloneMap[y+1][x+1] = "X";  
-                    }
+        for(int y = 0; y < m-1; y++) {
+            for(int x = 0; x <n-1; x++) {
+                if(map[y][x] == null | map[y+1][x] == null | map[y][x+1] == null | map[y+1][x+1] == null) {
+                    //null 처리를 위한 부분. 암것두 안함. 그러나 명시해주지 않으면 nullPointException이 일어남.
+                } else if(map[y][x].equals(map[y][x+1]) & map[y][x].equals(map[y+1][x]) & map[y][x].equals(map[y+1][x+1])) {
+                    cloneMap[y][x] = "X";
+                    cloneMap[y][x+1] = "X";
+                    cloneMap[y+1][x] = "X";
+                    cloneMap[y+1][x+1] = "X";  
                 }
             }
+        }
     }
+    
     
     public static int pangBlock(int m, int n, String[][] cloneMap) {
         int pang = 0;
@@ -66,6 +68,7 @@ public class FriendsBlock {
         return pang;
     }
     
+    
     public static void cleanMap(int m, int n, String[][] map, String[][] cloneMap) {
         for(int i = 0; i < m; i++) {
             for(int j = 0; j < n; j++) {
@@ -78,6 +81,7 @@ public class FriendsBlock {
             }
         }
     }
+    
     
     public static void pullDownMap(int m, int n, String[][] map) {
         for(int i = m-1; i >= 0; i--) {
@@ -104,4 +108,6 @@ public class FriendsBlock {
             }
         }
     }
+    
+    
 }
