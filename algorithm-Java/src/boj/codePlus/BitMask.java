@@ -2,7 +2,7 @@ package boj.codePlus;
 
 import java.util.Scanner;
 
-public class BitCalculate {
+public class BitMask {
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
@@ -32,10 +32,8 @@ public class BitCalculate {
                 bitmask = 0;
             }
         }
-        
         scan.close();
-        
-        
+
     }
 
 }
