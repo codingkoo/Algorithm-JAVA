@@ -23,7 +23,7 @@ public class SWEA_1213_String {
             
         }
         scan.close();
-
+        
     }
 
 }
