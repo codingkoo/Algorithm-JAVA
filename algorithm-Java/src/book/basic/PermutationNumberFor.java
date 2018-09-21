@@ -1,10 +1,8 @@
 package book.basic;
 
-import java.util.LinkedList;
-
 public class PermutationNumberFor {
     
-    // Using 1, 2, 3, 4
+    // 중복을 허용하지 않는 순열 연습
     public static void main(String[] args) {
         int[] numbers = {1, 2, 3, 4 };
         
